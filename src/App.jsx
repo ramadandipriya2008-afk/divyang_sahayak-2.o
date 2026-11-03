@@ -389,7 +389,9 @@ const translations = {
     "btnViewReceipt": "View Settlement Receipt",
     "footerMission": "♿ Assistive Aid Mobility Mission",
     "footerRefurbish": "♻ Responsible Equipment Refurbishing",
-    "footerCopyright": "© 2026 ScrapCycle • Reuse. Resell. Repeat."
+    "footerCopyright": "© 2026 ScrapCycle • Reuse. Resell. Repeat.",
+    "authHighlightTag": "✓ Verified Collector",
+    "authHighlightDesc": "Doorstep collection of wheelchairs & mobility aids"
   },
   "te": {
     "brandTagline": "పునర్వినియోగం. రీసేల్. పునరావృతం.",
@@ -601,7 +603,9 @@ const translations = {
     "btnViewReceipt": "చెల్లింపు రసీదును చూడండి",
     "footerMission": "♿ సహాయక పరికరాల చలనశీలతా మిషన్",
     "footerRefurbish": "♻ బాధ్యతాయుత పరికరాల పునరుద్ధరణ",
-    "footerCopyright": "© 2026 స్క్రాప్‌సైకిల్ • పునర్వినియోగం. రీసేల్. పునరావృతం."
+    "footerCopyright": "© 2026 స్క్రాప్‌సైకిల్ • పునర్వినియోగం. రీసేల్. పునరావృతం.",
+    "authHighlightTag": "✓ ధృవీకరించబడిన కలెక్టర్",
+    "authHighlightDesc": "వీల్‌చైర్లు మరియు మొబిలిటీ పరికరాల డోర్‌స్టెప్ సేకరణ"
   },
   "kn": {
     "brandTagline": "ಮರುಬಳಕೆ. ಮರುಮಾರಾಟ. ಪುನರಾವರ್ತನೆ.",
@@ -813,7 +817,9 @@ const translations = {
     "btnViewReceipt": "ಪಾವತಿ ರಶೀದಿ ವೀಕ್ಷಿಸಿ",
     "footerMission": "♿ ಸಹಾಯಕ ಸಾಧನ ಚಲನಶೀಲತಾ ಅಭಿಯಾನ",
     "footerRefurbish": "♻ ಜವಾಬ್ದಾರಿಯುತ ಸಾಧನ ನವೀಕರಣ",
-    "footerCopyright": "© 2026 ಸ್ಕ್ರ್ಯಾಪ್‌ಸೈಕಲ್ • ಮರುಬಳಕೆ. ಮರುಮಾರಾಟ. ಪುನರಾವರ್ತನೆ."
+    "footerCopyright": "© 2026 ಸ್ಕ್ರ್ಯಾಪ್‌ಸೈಕಲ್ • ಮರುಬಳಕೆ. ಮರುಮಾರಾಟ. ಪುನರಾವರ್ತನೆ.",
+    "authHighlightTag": "✓ ಪರಿಶೀಲಿಸಿದ ಸಂಗ್ರಾಹಕ",
+    "authHighlightDesc": "ಗಾಲಿಕುರ್ಚಿಗಳು ಮತ್ತು ಸಾಧನಗಳ ಮನೆಬಾಗಿಲಿನ ಸಂಗ್ರಹಣೆ"
   },
   "hi": {
     "brandTagline": "पुनः उपयोग. रीसेल. पुनरावृत्ति.",
@@ -1025,7 +1031,9 @@ const translations = {
     "btnViewReceipt": "भुगतान रसीद देखें",
     "footerMission": "♿ सहायक उपकरण गतिशीलता अभियान",
     "footerRefurbish": "♻ जिम्मेदार उपकरण नवीनीकरण",
-    "footerCopyright": "© 2026 स्क्रैपसाइकिल • पुनः उपयोग. रीसेल. पुनरावृत्ति."
+    "footerCopyright": "© 2026 स्क्रैपसाइकिल • पुनः उपयोग. रीसेल. पुनरावृत्ति.",
+    "authHighlightTag": "✓ सत्यापित संग्राहक",
+    "authHighlightDesc": "व्हीलचेयर और गतिशीलता उपकरणों का डोरस्टेप संग्रह"
   }
 };
 
@@ -1980,7 +1988,7 @@ function App() {
     notify("Payment received and balance updated.");
   };
 
-  // Auth Screen
+  // Auth Screen with clear scrap vendor wheelchair collection photography
   if (!signedIn) {
     return (
       <div className="auth-shell">
@@ -2003,6 +2011,20 @@ function App() {
               <em>{t("authHeroTitle2")}</em>
             </h1>
             <p>{t("authHeroDesc")}</p>
+
+            {/* Featured Photo Card: Scrap Vendor Collecting Wheelchair From Household */}
+            <div className="auth-image-highlight">
+              <img
+                src="/scrap-vendor-pickup.jpg"
+                alt="Scrap vendor collecting a wheelchair from a household"
+                className="auth-highlight-img"
+              />
+              <div className="auth-highlight-caption">
+                <span className="highlight-pill">{t("authHighlightTag")}</span>
+                <span>{t("authHighlightDesc")}</span>
+              </div>
+            </div>
+
             <div className="auth-perks">
               <span><IconCheck /> {t("authPerk1")}</span>
               <span><IconCheck /> {t("authPerk2")}</span>
@@ -2021,6 +2043,14 @@ function App() {
               <span>ScrapCycle</span>
             </div>
             <LanguageSelector lang={lang} setLang={setLang} />
+          </div>
+
+          {/* Mobile Photo Banner */}
+          <div className="mobile-auth-preview">
+            <img src="/scrap-vendor-pickup.jpg" alt="Scrap vendor collecting a wheelchair from a household" />
+            <div className="mobile-auth-badge">
+              <span>{t("authHighlightDesc")}</span>
+            </div>
           </div>
 
           <div className="auth-form-wrap">
@@ -3237,15 +3267,13 @@ function App() {
               ))}
             </div>
 
-            <label>
-              {t("commentsSuggestions")}
-              <textarea
-                rows="4"
-                value={feedback.message}
-                onChange={(e) => setFeedback({ ...feedback, message: e.target.value })}
-                placeholder={t("feedbackPlaceholder")}
-              />
-            </label>
+            <label>{t("commentsSuggestions")}</label>
+            <textarea
+              rows="4"
+              value={feedback.message}
+              onChange={(e) => setFeedback({ ...feedback, message: e.target.value })}
+              placeholder={t("feedbackPlaceholder")}
+            />
 
             <div className="modal-actions">
               <button type="button" className="btn outline" onClick={() => setShowFeedback(false)}>
@@ -3465,16 +3493,16 @@ h3 { font-size: 16px; letter-spacing: -0.2px; margin-bottom: 6px; }
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  margin-bottom: 30px;
+  margin-bottom: 24px;
 }
 .auth-visual-top .lang-switcher-wrap {
-  background: rgba(255, 255, 255, 0.9);
+  background: rgba(255, 255, 255, 0.92);
 }
 .mobile-brand-row {
   display: none;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 24px;
+  margin-bottom: 20px;
 }
 
 /* Buttons */
@@ -3495,21 +3523,51 @@ h3 { font-size: 16px; letter-spacing: -0.2px; margin-bottom: 6px; }
 .link-btn, .text-btn { border: 0; background: transparent; color: var(--green); font-size: 12px; font-weight: 700; padding: 4px; }
 .text-btn { text-decoration: underline; cursor: pointer; }
 
-/* Auth Layout */
+/* Auth Layout with Scrap Vendor Collection Photography */
 .auth-shell { min-height: 100vh; display: grid; grid-template-columns: 1.15fr 0.85fr; background: white; }
 .auth-visual {
-  background: linear-gradient(135deg, #103b25 0%, #174f32 50%, #206d45 100%);
-  color: white; padding: 50px; display: flex; flex-direction: column; justify-content: space-between; position: relative;
+  position: relative; min-height: 100vh; padding: 44px 7%; display: flex; flex-direction: column;
+  justify-content: space-between; overflow: hidden; color: white;
+  background: linear-gradient(145deg, #0d3824 0%, #185c39 50%, #206d45 100%);
 }
+.auth-visual:before {
+  content: ""; position: absolute; inset: 0;
+  background: linear-gradient(90deg, rgba(10, 42, 28, 0.88), rgba(16, 68, 44, 0.68)),
+              url('/scrap-vendor-pickup.jpg') center/cover no-repeat;
+  opacity: 0.95;
+}
+.auth-visual > * { position: relative; z-index: 1; }
+
 .auth-brand { display: flex; align-items: center; gap: 12px; }
 .brand-logo-img { width: 44px; height: 44px; object-fit: contain; }
 .brand-text span { font-size: 20px; font-weight: 800; letter-spacing: -0.5px; display: block; line-height: 1.1; }
 .brand-text small { font-size: 9px; letter-spacing: 1.8px; opacity: 0.8; font-weight: 700; }
 .auth-copy { max-width: 520px; }
 .auth-copy .eyebrow { color: #8de4b3; margin-bottom: 12px; display: inline-block; }
-.auth-copy h1 { font-size: 40px; line-height: 1.15; margin-bottom: 16px; }
+.auth-copy h1 { font-size: 38px; line-height: 1.15; margin-bottom: 14px; }
 .auth-copy em { font-style: normal; color: #a4f5c7; text-decoration: underline wavy #a4f5c7; }
-.auth-copy p { font-size: 15px; line-height: 1.7; opacity: 0.9; margin-bottom: 24px; }
+.auth-copy p { font-size: 14px; line-height: 1.65; opacity: 0.92; margin-bottom: 20px; }
+
+/* Photo Card of Scrap Vendor Collecting Wheelchair */
+.auth-image-highlight {
+  margin: 18px 0 24px; border-radius: 14px; overflow: hidden;
+  border: 2px solid rgba(255, 255, 255, 0.35); box-shadow: 0 16px 36px rgba(0, 0, 0, 0.35);
+  position: relative; max-width: 480px; background: rgba(0,0,0,0.3);
+}
+.auth-highlight-img {
+  width: 100%; height: 210px; object-fit: cover; display: block; transition: transform 0.3s ease;
+}
+.auth-image-highlight:hover .auth-highlight-img { transform: scale(1.02); }
+.auth-highlight-caption {
+  position: absolute; bottom: 0; left: 0; right: 0;
+  padding: 10px 14px; background: linear-gradient(180deg, transparent 0%, rgba(10, 36, 24, 0.94) 85%);
+  display: flex; align-items: center; gap: 10px; font-size: 11.5px; color: white;
+}
+.highlight-pill {
+  background: #57cf84; color: #0f3621; font-weight: 800; font-size: 10.5px;
+  padding: 3px 9px; border-radius: 12px; flex-shrink: 0;
+}
+
 .auth-perks { display: flex; flex-direction: column; gap: 10px; margin-bottom: 14px; }
 .auth-perks span { display: flex; align-items: center; gap: 10px; font-size: 13px; font-weight: 600; }
 .auth-perks svg { color: #86d299; flex-shrink: 0; }
@@ -3538,6 +3596,9 @@ h3 { font-size: 16px; letter-spacing: -0.2px; margin-bottom: 6px; }
 .terms a { color: var(--green); text-decoration: none; font-weight: 700; }
 .signin-note { font-size: 12px; text-align: center; margin-top: 16px; color: #5f7065; }
 .auth-footer { font-size: 11px; color: #94a49a; text-align: center; padding-top: 20px; }
+
+/* Mobile Auth Preview */
+.mobile-auth-preview { display: none; }
 
 /* Dashboard Layout */
 .app-shell { display: flex; min-height: 100vh; }
@@ -3917,6 +3978,16 @@ h3 { font-size: 16px; letter-spacing: -0.2px; margin-bottom: 6px; }
   .auth-panel { padding: 30px 20px; min-height: 100vh; }
   .mobile-brand-row { display: flex; }
   .mobile-brand { display: flex; align-items: center; gap: 10px; font-size: 20px; font-weight: 800; }
+  .mobile-auth-preview {
+    display: block; margin: 0 0 20px; border-radius: 12px; overflow: hidden;
+    position: relative; height: 160px; box-shadow: 0 4px 14px rgba(0,0,0,0.1);
+  }
+  .mobile-auth-preview img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .mobile-auth-badge {
+    position: absolute; bottom: 8px; left: 8px; right: 8px;
+    background: rgba(14, 40, 26, 0.88); color: white; font-size: 11px;
+    font-weight: 700; padding: 5px 10px; border-radius: 6px; text-align: center;
+  }
   .app-shell { display: block; }
   .sidebar { width: 100% !important; min-height: 0; height: auto; padding: 14px; border-right: 0; border-bottom: 1px solid var(--line); }
   .sidebar .side-group, .sidebar-bottom, .collapse-toggle-btn { display: none; }
