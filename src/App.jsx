@@ -175,7 +175,7 @@ const initialItems = [
     demandTag: "Top Resale Value",
     status: "Verified",
     date: "2026-10-18",
-    image: "https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=700&q=80",
+    image: "/manual-wheelchair.jpg",
     description: "Foldable steel frame, responsive brakes, dual 24-inch solid rubber rear wheels. Fully functional."
   },
   {
@@ -193,7 +193,7 @@ const initialItems = [
     pickupDate: "2026-10-24",
     pickupTime: "11:00 AM",
     address: "Flat 302, Palm Heights, Banjara Hills, Hyderabad",
-    image: "https://images.unsplash.com/photo-1584515979956-d9f6e5d09982?auto=format&fit=crop&w=700&q=80",
+    image: "/rollator-walker.jpg",
     description: "Equipped with padded seat, under-seat storage pouch, and ergonomic dual loop hand brakes."
   },
   {
@@ -208,7 +208,7 @@ const initialItems = [
     demandTag: "Fast Liquidity",
     status: "Payment received",
     date: "2026-10-12",
-    image: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=700&q=80",
+    image: "/underarm-crutches.jpg",
     description: "Heavy-duty lightweight anodized aluminum with push-button height adjustments and thick underarm pads."
   },
   {
@@ -223,7 +223,7 @@ const initialItems = [
     demandTag: "Premium Assistive",
     status: "Verified",
     date: "2026-10-21",
-    image: "https://images.unsplash.com/photo-1516549655169-df83a0774514?auto=format&fit=crop&w=700&q=80",
+    image: "/manual-wheelchair.jpg",
     description: "Hydraulic 180-degree reclining mechanism, elevating leg rests, and anti-tippers."
   },
   {
@@ -238,7 +238,7 @@ const initialItems = [
     demandTag: "High Refurbish ROI",
     status: "Pending verification",
     date: "2026-10-22",
-    image: "https://images.unsplash.com/photo-1583912267670-6575ad472688?auto=format&fit=crop&w=700&q=80",
+    image: "/folding-walker.jpg",
     description: "Single-button fold mechanism. Aircraft grade aluminum tubing with zero structural bending."
   },
   {
@@ -256,7 +256,7 @@ const initialItems = [
     pickupDate: "2026-10-25",
     pickupTime: "02:30 PM",
     address: "Villa 14, Rainbow Colony, Gachibowli, Hyderabad",
-    image: "https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&w=700&q=80",
+    image: "/forearm-crutches.jpg",
     description: "Contoured handles and closed hinged arm cuffs designed for prolonged ergonomic support."
   },
   {
@@ -271,7 +271,7 @@ const initialItems = [
     demandTag: "Motorized Powered",
     status: "Verified",
     date: "2026-10-24",
-    image: "https://images.unsplash.com/photo-1532938911079-1b06ac7ceec7?auto=format&fit=crop&w=700&q=80",
+    image: "/electric-wheelchair.jpg",
     description: "Joystick controller, dual 250W motors, electromagnetic brakes, 18 km battery range on single charge."
   },
   {
@@ -289,7 +289,7 @@ const initialItems = [
     pickupDate: "2026-10-27",
     pickupTime: "10:30 AM",
     address: "House 24, Begumpet Main Road, Hyderabad",
-    image: "https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?auto=format&fit=crop&w=700&q=80",
+    image: "/manual-wheelchair.jpg",
     description: "Adjustable thoracic supports, five-point safety harness, removable headrest, and abduction wedge."
   },
   {
@@ -304,7 +304,7 @@ const initialItems = [
     demandTag: "Orthopedic Ready",
     status: "Verified",
     date: "2026-10-26",
-    image: "https://images.unsplash.com/photo-1584516150909-c43483ee7932?auto=format&fit=crop&w=700&q=80",
+    image: "/folding-walker.jpg",
     description: "Two 5-inch front fixed wheels, rear ski glides, adjustable height legs, and padded foam grips."
   },
   {
@@ -319,7 +319,7 @@ const initialItems = [
     demandTag: "Active Mobility",
     status: "Pending verification",
     date: "2026-10-26",
-    image: "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=700&q=80",
+    image: "/rollator-walker.jpg",
     description: "Contoured molded foam knee platform, locking handbrakes, removable wire basket, fold-down steering column."
   },
   {
@@ -334,7 +334,7 @@ const initialItems = [
     demandTag: "Stroke Rehab Support",
     status: "Verified",
     date: "2026-10-27",
-    image: "https://images.unsplash.com/photo-1505751172876-fa1923c5c528?auto=format&fit=crop&w=700&q=80",
+    image: "/quad-cane.jpg",
     description: "Four-prong anodized steel base with non-slip rubber tips and cushioned offset handle."
   },
   {
@@ -349,7 +349,7 @@ const initialItems = [
     demandTag: "Travel Companion",
     status: "Payment received",
     date: "2026-10-15",
-    image: "https://images.unsplash.com/photo-1576765608535-5f04d1e3f289?auto=format&fit=crop&w=700&q=80",
+    image: "/manual-wheelchair.jpg",
     description: "Ultra-compact 8-inch rear companion wheels, drop-back folding backrest, and lightweight aluminum frame (9.2 kg)."
   }
 ];
@@ -366,7 +366,7 @@ const initialDonations = [
     status: "Delivered to Beneficiary",
     beneficiary: "Asha Children's Care & Rehab Center",
     impact: "Provided independent classroom mobility for a 9-year-old child with spastic diplegia.",
-    image: "https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?auto=format&fit=crop&w=700&q=80"
+    image: "/manual-wheelchair.jpg"
   },
   {
     id: 102,
@@ -378,7 +378,7 @@ const initialDonations = [
     status: "Refurbishing in progress",
     beneficiary: "Navjeevan Elders Home, Secunderabad",
     impact: "Brake cables tensioned and frame sanitized for distribution in upcoming senior health camp.",
-    image: "https://images.unsplash.com/photo-1584515979956-d9f6e5d09982?auto=format&fit=crop&w=700&q=80"
+    image: "/rollator-walker.jpg"
   },
   {
     id: 103,
@@ -390,7 +390,7 @@ const initialDonations = [
     status: "Collected from Donor",
     beneficiary: "Red Cross Community Dispensary",
     impact: "Free doorstep pickup completed. Fresh non-skid rubber base tips installed for safety.",
-    image: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=700&q=80"
+    image: "/underarm-crutches.jpg"
   },
   {
     id: 104,
@@ -402,7 +402,7 @@ const initialDonations = [
     status: "Donation requested",
     beneficiary: "Verification in progress",
     impact: "Four-point base cane allocated to an elderly community member recovering from hip replacement.",
-    image: "https://images.unsplash.com/photo-1505751172876-fa1923c5c528?auto=format&fit=crop&w=700&q=80"
+    image: "/quad-cane.jpg"
   },
   {
     id: 105,
@@ -414,18 +414,18 @@ const initialDonations = [
     status: "Donation requested",
     beneficiary: "Allocation to District Hospital",
     impact: "Donated to provide outpatient transit for low-income patients arriving at general clinic.",
-    image: "https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=700&q=80"
+    image: "/manual-wheelchair.jpg"
   }
 ];
 
 const donationImageMap = {
-  "Wheelchair (Manual)": "https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=700&q=80",
-  "Wheelchair (Electric / Motorized)": "https://images.unsplash.com/photo-1532938911079-1b06ac7ceec7?auto=format&fit=crop&w=700&q=80",
-  "Pair of Crutches (Underarm / Forearm)": "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=700&q=80",
-  "4-Wheel Rollator Walker": "https://images.unsplash.com/photo-1584515979956-d9f6e5d09982?auto=format&fit=crop&w=700&q=80",
-  "Standard Folding Walker Frame": "https://images.unsplash.com/photo-1583912267670-6575ad472688?auto=format&fit=crop&w=700&q=80",
-  "Adjustable Walking Stick / Cane": "https://images.unsplash.com/photo-1505751172876-fa1923c5c528?auto=format&fit=crop&w=700&q=80",
-  "Other Assistive Device": "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=700&q=80"
+  "Wheelchair (Manual)": "/manual-wheelchair.jpg",
+  "Wheelchair (Electric / Motorized)": "/electric-wheelchair.jpg",
+  "Pair of Crutches (Underarm / Forearm)": "/underarm-crutches.jpg",
+  "4-Wheel Rollator Walker": "/rollator-walker.jpg",
+  "Standard Folding Walker Frame": "/folding-walker.jpg",
+  "Adjustable Walking Stick / Cane": "/quad-cane.jpg",
+  "Other Assistive Device": "/forearm-crutches.jpg"
 };
 
 const steps = [
@@ -526,13 +526,13 @@ function App() {
     const origVal = Number(form.originalPrice || resaleVal * 2.5);
     const savings = Math.max(10, Math.round(((origVal - resaleVal) / origVal) * 100));
 
-    let fallbackImage = "https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=700&q=80";
+    let fallbackImage = "/manual-wheelchair.jpg";
     if (form.category === "Walkers") {
-      fallbackImage = "https://images.unsplash.com/photo-1584515979956-d9f6e5d09982?auto=format&fit=crop&w=700&q=80";
+      fallbackImage = "/rollator-walker.jpg";
     } else if (form.category === "Crutches") {
-      fallbackImage = "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=700&q=80";
+      fallbackImage = "/underarm-crutches.jpg";
     } else if (form.category.includes("Canes")) {
-      fallbackImage = "https://images.unsplash.com/photo-1505751172876-fa1923c5c528?auto=format&fit=crop&w=700&q=80";
+      fallbackImage = "/quad-cane.jpg";
     }
 
     const newItem = {
