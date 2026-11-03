@@ -934,7 +934,7 @@ function App() {
                 </div>
                 <div className="hero-art">
                   <img
-                    src="/scrap-vendor-pickup.jpg"
+                    src="/scrapped-wheelchair.jpg"
                     alt="Scrap vendor collecting a wheelchair from a household"
                     onError={(e) => {
                       e.currentTarget.src = "https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=1000&q=85";
