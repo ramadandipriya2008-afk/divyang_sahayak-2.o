@@ -110,12 +110,63 @@ const IconHeart = () => (
   </svg>
 );
 
-// Resale marketing items with realistic pricing strategies
+// Equipment Category SVG Icons
+const IconWheelchair = () => (
+  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+    <circle cx="9" cy="4" r="2" />
+    <circle cx="10" cy="17" r="5" />
+    <path d="M10 12h4l3 5" />
+    <path d="M14 12v-5" />
+    <path d="M17 17l2 2" />
+  </svg>
+);
+
+const IconWalker = () => (
+  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+    <path d="M6 4h12" />
+    <path d="M7 4v16" />
+    <path d="M17 4v16" />
+    <path d="M7 11h10" />
+    <circle cx="7" cy="20" r="1.5" />
+    <circle cx="17" cy="20" r="1.5" />
+  </svg>
+);
+
+const IconCrutches = () => (
+  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+    <path d="M6 3h5" />
+    <path d="M6 9h5" />
+    <path d="M7 3v6l1.5 12" />
+    <path d="M10 3v6l-1.5 12" />
+    <path d="M15 3h5" />
+    <path d="M15 9h5" />
+    <path d="M16 3v6l1.5 12" />
+    <path d="M19 3v6l-1.5 12" />
+  </svg>
+);
+
+const IconCane = () => (
+  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+    <path d="M14 4a3 3 0 0 0-6 0v16" />
+    <path d="M5 20h6" />
+  </svg>
+);
+
+// Dynamic helper returning the relevant equipment icon
+const getEquipmentIcon = (nameOrCategory) => {
+  const str = (nameOrCategory || "").toLowerCase();
+  if (str.includes("wheelchair")) return <IconWheelchair />;
+  if (str.includes("walker") || str.includes("rollator") || str.includes("scooter")) return <IconWalker />;
+  if (str.includes("crutch") || str.includes("crutches")) return <IconCrutches />;
+  return <IconCane />;
+};
+
+// 100% Mobility Equipment Catalog with verified high-res images & marketing resale strategies
 const initialItems = [
   {
     id: 1,
     name: "Manual Folding Wheelchair (Chrome Frame)",
-    category: "Mobility aid",
+    category: "Wheelchairs",
     condition: "Good - Minor cushion wear",
     originalPrice: 7800,
     price: 2499,
@@ -130,7 +181,7 @@ const initialItems = [
   {
     id: 2,
     name: "4-Wheel Rollator Walker with Seat & Basket",
-    category: "Mobility aid",
+    category: "Walkers",
     condition: "Used - Minor brake tuning needed",
     originalPrice: 5400,
     price: 1850,
@@ -148,7 +199,7 @@ const initialItems = [
   {
     id: 3,
     name: "Pair of Adjustable Aluminium Crutches",
-    category: "Mobility aid",
+    category: "Crutches",
     condition: "Like new - Hospital surplus",
     originalPrice: 1950,
     price: 699,
@@ -163,7 +214,7 @@ const initialItems = [
   {
     id: 4,
     name: "Heavy-Duty Reclining High-Back Wheelchair",
-    category: "Mobility aid",
+    category: "Wheelchairs",
     condition: "Good - Needs headrest cleaning",
     originalPrice: 16800,
     price: 4999,
@@ -178,7 +229,7 @@ const initialItems = [
   {
     id: 5,
     name: "Lightweight Aluminum Folding Walker",
-    category: "Mobility aid",
+    category: "Walkers",
     condition: "Used - Needs new rubber tips",
     originalPrice: 2400,
     price: 549,
@@ -193,7 +244,7 @@ const initialItems = [
   {
     id: 6,
     name: "Pair of Ergonomic Forearm Crutches",
-    category: "Mobility aid",
+    category: "Crutches",
     condition: "Like new",
     originalPrice: 2600,
     savingsPercent: 65,
@@ -210,92 +261,179 @@ const initialItems = [
   },
   {
     id: 7,
-    name: "Clean Sorted Aluminium Scrap (22 kg)",
-    category: "Metal",
-    condition: "Clean sorted alloy extrusions",
-    originalPrice: 3300,
-    price: 2860,
-    savingsPercent: 13,
-    resaleStrategy: "Spot commodity pricing indexed at ₹130/kg with transparent 12% scrap smelting processing margin.",
-    demandTag: "Spot Market Rate",
+    name: "Electric Motorized Power Wheelchair",
+    category: "Wheelchairs",
+    condition: "Reconditioned - Tested battery pack",
+    originalPrice: 42000,
+    price: 12999,
+    savingsPercent: 69,
+    resaleStrategy: "High-ticket charm price (₹12,999 vs ₹42,000 new); verified motor & controller provides immense value for paraplegic mobility.",
+    demandTag: "Motorized Powered",
     status: "Verified",
     date: "2026-10-24",
-    image: "https://images.unsplash.com/photo-1532996122724-e3c354a0b15b?auto=format&fit=crop&w=700&q=80",
-    description: "Segregated 6063 structural aluminum window sections and tube profiles free from iron fasteners."
+    image: "https://images.unsplash.com/photo-1532938911079-1b06ac7ceec7?auto=format&fit=crop&w=700&q=80",
+    description: "Joystick controller, dual 250W motors, electromagnetic brakes, 18 km battery range on single charge."
   },
   {
     id: 8,
-    name: "Stripped Copper Wire & Brass Scrap (9 kg)",
-    category: "Metal",
-    condition: "Millberry Grade 1 uninsulated",
-    originalPrice: 4800,
-    price: 4320,
-    savingsPercent: 10,
-    resaleStrategy: "Direct foundry rate guaranteed at ₹480/kg. High scrap index provides immediate cash settlement.",
-    demandTag: "Instant Cashout",
+    name: "Pediatric Cerebral Palsy Wheelchair",
+    category: "Wheelchairs",
+    condition: "Good - Sanitized & safety tested",
+    originalPrice: 14500,
+    price: 3850,
+    savingsPercent: 73,
+    resaleStrategy: "Specially discounted for growing children with physical disabilities; enables low-income families to access postural support.",
+    demandTag: "Specialized Pediatric",
     status: "Pickup scheduled",
     date: "2026-10-25",
-    pickupDate: "2026-10-26",
-    pickupTime: "10:00 AM",
-    address: "Unit 8, Balanagar Industrial Area, Hyderabad",
-    image: "https://images.unsplash.com/photo-1605559424843-9e4c228bf1c2?auto=format&fit=crop&w=700&q=80",
-    description: "Bright bare copper conductors alongside heavy plumbing brass fittings, sorted and weighed."
+    pickupDate: "2026-10-27",
+    pickupTime: "10:30 AM",
+    address: "House 24, Begumpet Main Road, Hyderabad",
+    image: "https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?auto=format&fit=crop&w=700&q=80",
+    description: "Adjustable thoracic supports, five-point safety harness, removable headrest, and abduction wedge."
+  },
+  {
+    id: 9,
+    name: "Front-Wheeled Walker with Glides",
+    category: "Walkers",
+    condition: "Like new - Barely used",
+    originalPrice: 3200,
+    price: 1199,
+    savingsPercent: 63,
+    resaleStrategy: "Sub-₹1,200 sweet spot for post-operative orthopedic recovery; dual 5-inch wheels provide smooth indoor gliding.",
+    demandTag: "Orthopedic Ready",
+    status: "Verified",
+    date: "2026-10-26",
+    image: "https://images.unsplash.com/photo-1584516150909-c43483ee7932?auto=format&fit=crop&w=700&q=80",
+    description: "Two 5-inch front fixed wheels, rear ski glides, adjustable height legs, and padded foam grips."
+  },
+  {
+    id: 10,
+    name: "Steerable Knee Walker / Recovery Scooter",
+    category: "Walkers",
+    condition: "Good - Solid dual drum brakes",
+    originalPrice: 9500,
+    price: 2999,
+    savingsPercent: 68,
+    resaleStrategy: "Alternative to crutches for ankle/foot recovery; rental-competing resale price of ₹2,999 drives rapid acquisition.",
+    demandTag: "Active Mobility",
+    status: "Pending verification",
+    date: "2026-10-26",
+    image: "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=700&q=80",
+    description: "Contoured molded foam knee platform, locking handbrakes, removable wire basket, fold-down steering column."
+  },
+  {
+    id: 11,
+    name: "Heavy-Duty Quad-Base Walking Cane",
+    category: "Canes & Sticks",
+    condition: "Like new",
+    originalPrice: 1400,
+    price: 499,
+    savingsPercent: 64,
+    resaleStrategy: "Accessible under ₹500 pricing; 4-point wide base provides superior stability over single-point canes.",
+    demandTag: "Stroke Rehab Support",
+    status: "Verified",
+    date: "2026-10-27",
+    image: "https://images.unsplash.com/photo-1505751172876-fa1923c5c528?auto=format&fit=crop&w=700&q=80",
+    description: "Four-prong anodized steel base with non-slip rubber tips and cushioned offset handle."
+  },
+  {
+    id: 12,
+    name: "Lightweight Travel Transport Wheelchair",
+    category: "Wheelchairs",
+    condition: "Good - Compact fold",
+    originalPrice: 8500,
+    price: 2699,
+    savingsPercent: 68,
+    resaleStrategy: "Compact vehicle-trunk travel wheelchair; 68% discount tailored for seniors attending clinical visits.",
+    demandTag: "Travel Companion",
+    status: "Payment received",
+    date: "2026-10-15",
+    image: "https://images.unsplash.com/photo-1576765608535-5f04d1e3f289?auto=format&fit=crop&w=700&q=80",
+    description: "Ultra-compact 8-inch rear companion wheels, drop-back folding backrest, and lightweight aluminum frame (9.2 kg)."
   }
 ];
 
+// Rich Community Donations with realistic equipment imagery
 const initialDonations = [
   {
     id: 101,
-    item: "Pediatric Wheelchair",
-    condition: "Good - Sanitized",
+    item: "Pediatric Wheelchair (Postural Support)",
+    category: "Wheelchairs",
+    condition: "Good - Sanitized & Tested",
     donor: "Sunita Verma",
     date: "2026-10-18",
     status: "Delivered to Beneficiary",
     beneficiary: "Asha Children's Care & Rehab Center",
-    impact: "Provides independent mobility for a 9-year-old child attending school.",
-    image: "https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=700&q=80"
+    impact: "Provided independent classroom mobility for a 9-year-old child with spastic diplegia.",
+    image: "https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?auto=format&fit=crop&w=700&q=80"
   },
   {
     id: 102,
     item: "4-Wheel Rollator Walker with Seat",
+    category: "Walkers",
     condition: "Like new",
     donor: "Dr. K. Raghavan",
     date: "2026-10-21",
     status: "Refurbishing in progress",
     beneficiary: "Navjeevan Elders Home, Secunderabad",
-    impact: "Undergoing brake lubrication and safety check prior to donation distribution camp.",
+    impact: "Brake cables tensioned and frame sanitized for distribution in upcoming senior health camp.",
     image: "https://images.unsplash.com/photo-1584515979956-d9f6e5d09982?auto=format&fit=crop&w=700&q=80"
   },
   {
     id: 103,
-    item: "Pair of Underarm Crutches",
-    condition: "Good",
+    item: "Pair of Aluminum Underarm Crutches",
+    category: "Crutches",
+    condition: "Good - Solid",
     donor: "Kushal",
     date: "2026-10-24",
     status: "Collected from Donor",
     beneficiary: "Red Cross Community Dispensary",
-    impact: "Collected via doorstep pickup. New non-skid rubber base ferrules installed.",
+    impact: "Free doorstep pickup completed. Fresh non-skid rubber base tips installed for safety.",
     image: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=700&q=80"
   },
   {
     id: 104,
-    item: "Adjustable Quad Walking Stick",
+    item: "Adjustable Quad-Base Walking Stick",
+    category: "Canes & Sticks",
     condition: "Like new",
     donor: "Priya Sundaram",
     date: "2026-10-26",
     status: "Donation requested",
     beneficiary: "Verification in progress",
-    impact: "Four-point base cane in stainless steel, ideal for stroke rehabilitation support.",
-    image: "https://images.unsplash.com/photo-1583912267670-6575ad472688?auto=format&fit=crop&w=700&q=80"
+    impact: "Four-point base cane allocated to an elderly community member recovering from hip replacement.",
+    image: "https://images.unsplash.com/photo-1505751172876-fa1923c5c528?auto=format&fit=crop&w=700&q=80"
+  },
+  {
+    id: 105,
+    item: "Manual Standard Folding Wheelchair",
+    category: "Wheelchairs",
+    condition: "Good - Clean frame",
+    donor: "Amitabh Banerjee",
+    date: "2026-10-28",
+    status: "Donation requested",
+    beneficiary: "Allocation to District Hospital",
+    impact: "Donated to provide outpatient transit for low-income patients arriving at general clinic.",
+    image: "https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=700&q=80"
   }
 ];
 
+const donationImageMap = {
+  "Wheelchair (Manual)": "https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=700&q=80",
+  "Wheelchair (Electric / Motorized)": "https://images.unsplash.com/photo-1532938911079-1b06ac7ceec7?auto=format&fit=crop&w=700&q=80",
+  "Pair of Crutches (Underarm / Forearm)": "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=700&q=80",
+  "4-Wheel Rollator Walker": "https://images.unsplash.com/photo-1584515979956-d9f6e5d09982?auto=format&fit=crop&w=700&q=80",
+  "Standard Folding Walker Frame": "https://images.unsplash.com/photo-1583912267670-6575ad472688?auto=format&fit=crop&w=700&q=80",
+  "Adjustable Walking Stick / Cane": "https://images.unsplash.com/photo-1505751172876-fa1923c5c528?auto=format&fit=crop&w=700&q=80",
+  "Other Assistive Device": "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=700&q=80"
+};
+
 const steps = [
-  "Upload your scrap item",
-  "Condition & resale audit",
+  "Upload mobility aid details",
+  "Condition & resale valuation",
   "Schedule doorstep pickup",
   "Receive fair payout",
-  "App feedback & community impact",
+  "Community feedback & impact",
 ];
 
 const money = (n) => `₹${Number(n).toLocaleString("en-IN")}`;
@@ -323,7 +461,7 @@ function App() {
 
   const [form, setForm] = useState({
     name: "",
-    category: "Mobility aid",
+    category: "Wheelchairs",
     condition: "Good - Light wear",
     originalPrice: "",
     price: "",
@@ -333,7 +471,7 @@ function App() {
 
   const [schedule, setSchedule] = useState({ date: "", time: "10:00 AM", address: "" });
   const [feedback, setFeedback] = useState({ rating: 5, message: "" });
-  const [donateForm, setDonateForm] = useState({ item: "Wheelchair", condition: "Good", note: "" });
+  const [donateForm, setDonateForm] = useState({ item: "Wheelchair (Manual)", condition: "Good", note: "" });
 
   const totalEarned = useMemo(
     () => items.filter((i) => i.status === "Payment received").reduce((sum, i) => sum + Number(i.price || 0), 0),
@@ -344,8 +482,10 @@ function App() {
 
   const filteredItems = useMemo(() => {
     if (itemFilter === "All") return items;
-    if (itemFilter === "Mobility") return items.filter((i) => i.category === "Mobility aid");
-    if (itemFilter === "Metal") return items.filter((i) => i.category === "Metal");
+    if (itemFilter === "Wheelchairs") return items.filter((i) => i.category === "Wheelchairs");
+    if (itemFilter === "Walkers") return items.filter((i) => i.category === "Walkers");
+    if (itemFilter === "Crutches") return items.filter((i) => i.category === "Crutches");
+    if (itemFilter === "Canes") return items.filter((i) => i.category.includes("Canes"));
     if (itemFilter === "Scheduled") return items.filter((i) => i.status === "Pickup scheduled");
     if (itemFilter === "Completed") return items.filter((i) => i.status === "Payment received");
     return items;
@@ -386,6 +526,15 @@ function App() {
     const origVal = Number(form.originalPrice || resaleVal * 2.5);
     const savings = Math.max(10, Math.round(((origVal - resaleVal) / origVal) * 100));
 
+    let fallbackImage = "https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=700&q=80";
+    if (form.category === "Walkers") {
+      fallbackImage = "https://images.unsplash.com/photo-1584515979956-d9f6e5d09982?auto=format&fit=crop&w=700&q=80";
+    } else if (form.category === "Crutches") {
+      fallbackImage = "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=700&q=80";
+    } else if (form.category.includes("Canes")) {
+      fallbackImage = "https://images.unsplash.com/photo-1505751172876-fa1923c5c528?auto=format&fit=crop&w=700&q=80";
+    }
+
     const newItem = {
       id: Date.now(),
       name: form.name.trim(),
@@ -398,17 +547,15 @@ function App() {
       demandTag: "Fair Value Verified",
       status: "Pending verification",
       date: new Date().toISOString().slice(0, 10),
-      description: form.description || "Inspected reusable item ready for verification and doorstep pickup.",
-      image: form.image || (form.category === "Mobility aid"
-        ? "https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=700&q=80"
-        : "https://images.unsplash.com/photo-1532996122724-e3c354a0b15b?auto=format&fit=crop&w=700&q=80"),
+      description: form.description || "Inspected reusable mobility aid ready for verification and doorstep pickup.",
+      image: form.image || fallbackImage,
     };
     setItems((old) => [newItem, ...old]);
     addNotification("Item submitted for resale audit", `${newItem.name} listed at ${money(newItem.price)}. Verification in progress.`);
-    setForm({ name: "", category: "Mobility aid", condition: "Good - Light wear", originalPrice: "", price: "", description: "", image: "" });
+    setForm({ name: "", category: "Wheelchairs", condition: "Good - Light wear", originalPrice: "", price: "", description: "", image: "" });
     setShowUpload(false);
     setActive("My Items");
-    notify("Item uploaded and submitted for valuation.");
+    notify("Mobility equipment submitted for valuation.");
   };
 
   const schedulePickup = (e) => {
@@ -429,6 +576,7 @@ function App() {
 
   const donateItem = (e) => {
     e.preventDefault();
+    const chosenImage = donationImageMap[donateForm.item] || "https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=700&q=80";
     const donation = {
       id: Date.now(),
       item: donateForm.item,
@@ -438,13 +586,11 @@ function App() {
       status: "Donation requested",
       beneficiary: "Allocation in progress",
       impact: donateForm.note || "Awaiting condition inspection prior to free handoff to an underprivileged recipient.",
-      image: donateForm.item.toLowerCase().includes("wheelchair")
-        ? "https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=700&q=80"
-        : "https://images.unsplash.com/photo-1584515979956-d9f6e5d09982?auto=format&fit=crop&w=700&q=80"
+      image: chosenImage
     };
     setDonations((old) => [donation, ...old]);
     addNotification("Donation request received", `Thank you for donating ${donation.item}! Our team will coordinate free collection.`);
-    setDonateForm({ item: "Wheelchair", condition: "Good", note: "" });
+    setDonateForm({ item: "Wheelchair (Manual)", condition: "Good", note: "" });
     setActive("Donate");
     notify("Thank you for choosing to donate and support people in need!");
   };
@@ -477,19 +623,19 @@ function App() {
             </div>
           </div>
           <div className="auth-copy">
-            <span className="eyebrow">GIVE SCRAP & MOBILITY AIDS A SECOND LIFE</span>
-            <h1>Turn your unused items into <em>new possibilities.</em></h1>
+            <span className="eyebrow">ASSISTIVE MOBILITY AID CIRCULAR RESALE</span>
+            <h1>Turn your unused mobility aids into <em>new possibilities.</em></h1>
             <p>
-              Connect directly with verified scrap collectors for doorstep pickups. Sell recyclable metals and resell or donate wheelchairs, walkers, and crutches to people in need.
+              Connect directly with verified collectors for doorstep pickups. Resell or donate wheelchairs, walkers, crutches, and walking canes to empower people with disabilities and elderly citizens in need.
             </p>
             <div className="auth-perks">
-              <span><IconCheck /> Free doorstep collection for mobility aids & scrap</span>
-              <span><IconCheck /> Resale pricing based on fair market & scrap recovery values</span>
-              <span><IconCheck /> Donate wheelchairs & crutches to underprivileged beneficiaries</span>
+              <span><IconCheck /> Free doorstep collection for wheelchairs, walkers & crutches</span>
+              <span><IconCheck /> Resale pricing based on fair market & refurbishment values</span>
+              <span><IconCheck /> Free donation delivery to underprivileged beneficiaries</span>
             </div>
           </div>
           <div className="visual-caption">
-            <span className="pulse-dot" /> Community-driven circular economy across India
+            <span className="pulse-dot" /> Community-driven circular mobility network across India
           </div>
         </div>
 
@@ -522,8 +668,8 @@ function App() {
             <h2>{authMode === "login" ? "Sign in to your account" : "Create your account"}</h2>
             <p className="muted">
               {authMode === "login"
-                ? "Access your listed items, pickup schedules, and payouts."
-                : "Start selling reusable scrap, booking pickups, and donating today."}
+                ? "Access your listed wheelchairs, pickup schedules, and payouts."
+                : "Start listing reusable mobility aids, booking pickups, and donating today."}
             </p>
 
             <form onSubmit={handleAuthSubmit}>
@@ -572,11 +718,11 @@ function App() {
 
             <p className="terms">
               By continuing, you agree to our{" "}
-              <a href="#terms" onClick={(e) => { e.preventDefault(); notify("Terms of Service: Circular scrap recycling & assistive aid verification protocol."); }}>
+              <a href="#terms" onClick={(e) => { e.preventDefault(); notify("Terms of Service: Assistive aid inspection & doorstep collection protocol."); }}>
                 Terms
               </a>{" "}
               and{" "}
-              <a href="#privacy" onClick={(e) => { e.preventDefault(); notify("Privacy: User location and phone details are only shared with assigned collectors."); }}>
+              <a href="#privacy" onClick={(e) => { e.preventDefault(); notify("Privacy: Location and phone details are only shared with assigned collectors."); }}>
                 Privacy Policy
               </a>.
             </p>
@@ -599,7 +745,7 @@ function App() {
               )}
             </p>
           </div>
-          <div className="auth-footer">♻ ScrapCycle • Empowering mobility and responsible recycling</div>
+          <div className="auth-footer">♿ ScrapCycle • Empowering mobility and assistive aid independence</div>
         </div>
 
         {toast && <div className="toast"><span>✓</span>{toast}</div>}
@@ -680,7 +826,7 @@ function App() {
             <div className="help-card">
               <div className="help-icon"><IconTruck /></div>
               <strong>Doorstep Pickup Partner</strong>
-              <p>Scrap vendors collect within 24–48 hours across major sectors.</p>
+              <p>Specialized collectors handle wheelchairs and walkers with padded transport.</p>
               <button onClick={() => notify("Support helpline: +91 800-SCRAP-CYCLE (9 AM - 7 PM)")}>
                 Vendor Helpline ↗
               </button>
@@ -696,7 +842,7 @@ function App() {
             {!sidebarCollapsed && (
               <div className="profile-text">
                 <strong>{user.name || "Kushal"}</strong>
-                <small>Verified Contributor</small>
+                <small>Mobility Contributor</small>
               </div>
             )}
           </button>
@@ -724,7 +870,7 @@ function App() {
 
           <div className="top-actions">
             <button className="btn outline small-btn quick-list-btn" onClick={() => setShowUpload(true)}>
-              ＋ List Scrap / Aid
+              ＋ List Mobility Aid
             </button>
             <button
               className="icon-btn notification-top"
@@ -750,10 +896,10 @@ function App() {
             <>
               <div className="welcome-row">
                 <div>
-                  <div className="eyebrow">SMART SCRAP & MOBILITY AID WORKSPACE</div>
+                  <div className="eyebrow">CIRCULAR MOBILITY AID ECOSYSTEM</div>
                   <h1>Good to see you, {user.name || "Kushal"} <span className="wave">✦</span></h1>
                   <p className="muted">
-                    Track your reusable mobility aids, scrap commodity values, and community impact in real time.
+                    Track your reusable wheelchairs, walkers, crutches, resale valuations, and community donations.
                   </p>
                 </div>
                 <div className="welcome-actions">
@@ -766,7 +912,7 @@ function App() {
                 </div>
               </div>
 
-              {/* HERO BANNER with Scrap Vendor Wheelchair Pickup Image */}
+              {/* HERO BANNER - Logo Image removed from sticker as requested */}
               <section className="hero-banner">
                 <div className="hero-text">
                   <span className="hero-tag">CIRCULAR IMPACT & MOBILITY AID RESALE</span>
@@ -775,11 +921,11 @@ function App() {
                     <em>Another's treasure.</em>
                   </h2>
                   <p>
-                    Turn broken or unused wheelchairs, walkers, crutches, and household metals into fair cash through certified local scrap vendors—or donate directly to underprivileged beneficiaries.
+                    Turn unused or damaged wheelchairs, walkers, and crutches into fair resale cash through doorstep collection—or donate directly to restore someone's independence.
                   </p>
                   <div className="hero-buttons">
                     <button className="btn white" onClick={() => setShowUpload(true)}>
-                      Sell / Resell item <span>→</span>
+                      Resell Mobility Aid <span>→</span>
                     </button>
                     <button className="btn ghost-light" onClick={() => setActive("Donate")}>
                       Explore Donations ({donations.length})
@@ -795,10 +941,10 @@ function App() {
                     }}
                   />
                   <div className="art-sticker">
-                    <img src="/scrapcycle-logo.png" alt="Logo" className="sticker-logo" />
+                    <span className="art-sticker-icon">✓</span>
                     <div>
                       <strong>Verified Pickup</strong>
-                      <small>Doorstep Scrap Collector</small>
+                      <small>Doorstep Mobility Collector</small>
                     </div>
                   </div>
                 </div>
@@ -807,8 +953,8 @@ function App() {
               {/* STATS TILES */}
               <div className="stats-grid">
                 <Stat
-                  icon={<IconItems />}
-                  label="Items in inventory"
+                  icon={<IconWheelchair />}
+                  label="Mobility aids in inventory"
                   value={items.length}
                   note={`${verifiedCount} ready for pickup`}
                   color="green"
@@ -822,9 +968,9 @@ function App() {
                 />
                 <Stat
                   icon={<IconRupee />}
-                  label="Total revenue realized"
+                  label="Total resale value realized"
                   value={money(totalEarned)}
-                  note="Fair resale & scrap payouts"
+                  note="Paid via instant disbursement"
                   color="purple"
                 />
                 <Stat
@@ -836,11 +982,11 @@ function App() {
                 />
               </div>
 
-              {/* RECENT ITEMS TABLE */}
+              {/* RECENT ITEMS TABLE with Relevant Equipment Images & Category Icon Badges */}
               <div className="section-heading">
                 <div>
-                  <h3>Recent Items & Resale Valuations</h3>
-                  <p className="muted">Latest scrap collections and refurbished mobility aids with pricing strategies.</p>
+                  <h3>Recent Mobility Items & Resale Valuations</h3>
+                  <p className="muted">Latest wheelchairs, walkers, and crutches with condition notes and marketing pricing strategies.</p>
                 </div>
                 <button className="link-btn" onClick={() => setActive("My Items")}>
                   View all items ({items.length}) →
@@ -851,10 +997,10 @@ function App() {
                 <table className="items-table">
                   <thead>
                     <tr>
-                      <th>ITEM & CATEGORY</th>
+                      <th>EQUIPMENT & CATEGORY</th>
                       <th>CONDITION & WEAR</th>
                       <th>MARKET VS RESALE PRICE</th>
-                      <th>MARKETING STRATEGY</th>
+                      <th>MARKETING PRICING STRATEGY</th>
                       <th>STATUS</th>
                       <th>ACTION</th>
                     </tr>
@@ -864,10 +1010,13 @@ function App() {
                       <tr key={item.id}>
                         <td>
                           <div className="item-cell">
-                            <img src={item.image} alt={item.name} className="item-thumb" />
+                            <div className="item-thumb-wrap">
+                              <img src={item.image} alt={item.name} className="item-thumb" />
+                              <span className="item-type-icon">{getEquipmentIcon(item.name || item.category)}</span>
+                            </div>
                             <div>
                               <strong>{item.name}</strong>
-                              <small>{item.category} • Added {item.date}</small>
+                              <small>{item.category} • Listed {item.date}</small>
                             </div>
                           </div>
                         </td>
@@ -924,7 +1073,7 @@ function App() {
                 <div className="panel">
                   <div className="panel-head">
                     <div>
-                      <h3>Item Lifecycle Pipeline</h3>
+                      <h3>Mobility Lifecycle Pipeline</h3>
                       <p className="muted">Transparent verification, fair resale valuation, and collector dispatch.</p>
                     </div>
                     <button className="link-btn" onClick={() => setActive("Verification")}>
@@ -936,12 +1085,12 @@ function App() {
 
                 <div className="donate-card">
                   <div className="donate-card-badge">
-                    <img src="/scrapcycle-logo.png" alt="Logo" className="small-badge-logo" />
+                    <span className="mission-heart-icon"><IconHeart /></span>
                     <span>Mobility Aid Mission</span>
                   </div>
                   <h3>Restore Dignity & Independence</h3>
                   <p>
-                    A damaged or unused wheelchair in your storeroom can be refurbished and given free to a person with disabilities in need.
+                    An unused wheelchair, walker, or pair of crutches in your storeroom can be refurbished and given free to a person with disabilities in need.
                   </p>
                   <div className="donate-card-impact">
                     <div><strong>{donations.length}</strong><small>Aids Donated</small></div>
@@ -955,40 +1104,49 @@ function App() {
             </>
           )}
 
-          {/* MY ITEMS VIEW */}
+          {/* MY ITEMS VIEW - 100% Mobility Equipments with dedicated images and category filters */}
           {active === "My Items" && (
             <>
               <PageTitle
-                title="My Items & Resale Catalog"
-                subtitle="Manage your scrap listings, view condition notes, and track resale pricing marketing strategies."
+                title="Mobility Equipment Catalog"
+                subtitle="Manage your listed wheelchairs, walkers, crutches, and walking aids with condition ratings and commercial resale strategies."
                 action={
                   <button className="btn primary" onClick={() => setShowUpload(true)}>
-                    ＋ List new item
+                    ＋ List mobility equipment
                   </button>
                 }
               />
 
               <div className="filter-row">
-                {["All", "Mobility", "Metal", "Scheduled", "Completed"].map((filter) => (
+                {["All", "Wheelchairs", "Walkers", "Crutches", "Canes", "Scheduled", "Completed"].map((filter) => (
                   <button
                     key={filter}
                     className={`filter-pill ${itemFilter === filter ? "active" : ""}`}
                     onClick={() => setItemFilter(filter)}
                   >
+                    <span className="filter-pill-icon">{getEquipmentIcon(filter)}</span>
                     {filter === "All"
-                      ? "All items"
-                      : filter === "Mobility"
-                      ? "Mobility Aids"
-                      : filter === "Metal"
-                      ? "Sorted Metals"
+                      ? "All Equipments"
+                      : filter === "Wheelchairs"
+                      ? "Wheelchairs"
+                      : filter === "Walkers"
+                      ? "Walkers & Rollators"
+                      : filter === "Crutches"
+                      ? "Crutches"
+                      : filter === "Canes"
+                      ? "Canes & Sticks"
                       : filter}
                     <b>
                       {filter === "All"
                         ? items.length
-                        : filter === "Mobility"
-                        ? items.filter((i) => i.category === "Mobility aid").length
-                        : filter === "Metal"
-                        ? items.filter((i) => i.category === "Metal").length
+                        : filter === "Wheelchairs"
+                        ? items.filter((i) => i.category === "Wheelchairs").length
+                        : filter === "Walkers"
+                        ? items.filter((i) => i.category === "Walkers").length
+                        : filter === "Crutches"
+                        ? items.filter((i) => i.category === "Crutches").length
+                        : filter === "Canes"
+                        ? items.filter((i) => i.category.includes("Canes")).length
                         : filter === "Scheduled"
                         ? items.filter((i) => i.status === "Pickup scheduled").length
                         : items.filter((i) => i.status === "Payment received").length}
@@ -1005,6 +1163,10 @@ function App() {
                       <div className="card-floating-badge">
                         <Status status={item.status} />
                       </div>
+                      <span className="card-type-chip">
+                        {getEquipmentIcon(item.name || item.category)}
+                        <span>{item.category}</span>
+                      </span>
                       {item.savingsPercent && (
                         <span className="card-savings-flag">{item.savingsPercent}% SAVINGS</span>
                       )}
@@ -1022,7 +1184,7 @@ function App() {
 
                       <div className="pricing-box">
                         <div className="price-col">
-                          <small>Resale / Scrap Price</small>
+                          <small>Resale Market Valuation</small>
                           <div className="price-wrap">
                             <span className="price-amount">{money(item.price)}</span>
                             {item.originalPrice && (
@@ -1047,7 +1209,7 @@ function App() {
                         <div className="pickup-scheduled-info">
                           <IconTruck />
                           <div>
-                            <strong>Pickup booked: {item.pickupDate} at {item.pickupTime}</strong>
+                            <strong>Pickup: {item.pickupDate} at {item.pickupTime}</strong>
                             <small>{item.address}</small>
                           </div>
                         </div>
@@ -1078,24 +1240,24 @@ function App() {
               </div>
 
               <div className="notice">
-                💡 <strong>Marketing Strategy Insight:</strong> Prices for damaged mobility aids are computed using charm pricing (e.g. ₹699, ₹1,850, ₹2,499) anchored against manufacturer retail MRP, minus estimated component refurbishing costs (rubber ferrules, arm pads, brake cables). This unlocks rapid liquidity for sellers while making assistive aids highly affordable.
+                💡 <strong>Commercial Strategy Insight:</strong> All prices for pre-owned mobility aids (wheelchairs, walkers, crutches) use charm pricing (₹549, ₹699, ₹899, ₹1,850, ₹2,499, ₹3,850, ₹4,999) anchored against manufacturer retail MRP. Refurbishing deductions are pre-factored for quick turnaround to local hospitals, physical therapy centers, and families.
               </div>
             </>
           )}
 
-          {/* SCHEDULE PICKUP VIEW */}
+          {/* SCHEDULE PICKUP VIEW with Relevant Equipment Images & Badges */}
           {active === "Schedule" && (
             <>
               <PageTitle
                 title="Doorstep Pickup Schedule"
-                subtitle="Coordinate verified scrap collectors to pick up heavy scrap and mobility equipment from your location."
+                subtitle="Coordinate verified mobility collectors to pick up wheelchairs, walkers, and crutches from your doorstep."
               />
 
               <div className="panel">
                 <div className="panel-head">
                   <div>
-                    <h3>Active & Ready Pickups</h3>
-                    <p className="muted">Items verified by our team ready for collector routing.</p>
+                    <h3>Active & Scheduled Mobility Pickups</h3>
+                    <p className="muted">Verified items booked for doorstep collection and direct payout.</p>
                   </div>
                   <span className="counter-pill">
                     {items.filter((i) => ["Verified", "Pickup scheduled"].includes(i.status)).length} Active
@@ -1104,15 +1266,18 @@ function App() {
 
                 {items.filter((i) => ["Verified", "Pickup scheduled"].includes(i.status)).length === 0 ? (
                   <Empty
-                    title="No items ready for pickup"
-                    text="List an item or complete verification to book a doorstep collection."
+                    title="No mobility items ready for pickup"
+                    text="List a wheelchair, walker, or crutches and complete verification to book collection."
                   />
                 ) : (
                   items
                     .filter((i) => ["Verified", "Pickup scheduled"].includes(i.status))
                     .map((item) => (
                       <div className="schedule-row" key={item.id}>
-                        <img src={item.image} alt={item.name} className="schedule-thumb" />
+                        <div className="schedule-thumb-wrap">
+                          <img src={item.image} alt={item.name} className="schedule-thumb" />
+                          <span className="schedule-type-badge">{getEquipmentIcon(item.name || item.category)}</span>
+                        </div>
                         <div className="schedule-info">
                           <div className="schedule-title-row">
                             <strong>{item.name}</strong>
@@ -1160,21 +1325,21 @@ function App() {
               <div className="panel calendar-note">
                 <div className="calendar-icon"><IconTruck /></div>
                 <div>
-                  <h3>Collector Logistics Guidelines</h3>
+                  <h3>Collector Logistics & Handling Standards</h3>
                   <p className="muted">
-                    Our local scrap collectors arrive with digital weighing scales and sanitized protective gear. Wheelchairs and walkers are transported on flatbed carts to avoid damage. Payout is processed instantly upon handover.
+                    Collectors arrive with specialized protective blankets and straps to ensure wheelchairs, electronic controllers, and folding mechanisms are handled with care. Cash or UPI payout is confirmed right at your door.
                   </p>
                 </div>
               </div>
             </>
           )}
 
-          {/* DONATE VIEW with Smiling Scrap Vendor Helping Poor People Image */}
+          {/* DONATE VIEW with Smiling Scrap Vendor Helping Poor People Image & Equipment Images */}
           {active === "Donate" && (
             <>
               <PageTitle
                 title="Give Mobility Aids a Second Life"
-                subtitle="Donate usable or repairable wheelchairs, crutches, and walkers to restore freedom for someone in need."
+                subtitle="Donate wheelchairs, crutches, and walkers to restore freedom and mobility for underprivileged individuals."
               />
 
               {/* DONATION FEATURE BANNER with Smiling Vendor Helping People Image */}
@@ -1188,14 +1353,14 @@ function App() {
                     }}
                   />
                   <div className="donation-img-overlay">
-                    <span>❤️ Community Impact Program</span>
+                    <span>❤️ Community Mobility Outreach</span>
                   </div>
                 </div>
                 <div className="donate-feature-content">
                   <span className="eyebrow">HEARTFELT COMMUNITY SUPPORT</span>
                   <h2>Every donated aid transforms a life.</h2>
                   <p>
-                    Millions of elderly individuals and persons with disabilities across low-income communities lack access to basic mobility equipment. Our network of smiling, community-first scrap vendors collects, cleans, repairs, and delivers wheelchairs and crutches directly to people who need them most—at zero cost to them.
+                    Millions of elderly individuals and persons with disabilities across low-income communities lack access to basic mobility equipment. Our network of smiling, community-first collectors picks up, cleans, repairs, and delivers wheelchairs and crutches directly to people who need them most—at zero cost to them.
                   </p>
                   <div className="donate-chips">
                     <span><IconCheck /> Free Doorstep Collection</span>
@@ -1205,64 +1370,82 @@ function App() {
                 </div>
               </div>
 
-              {/* SUBMIT DONATION FORM */}
+              {/* SUBMIT DONATION FORM with Live Equipment Image Preview */}
               <div className="panel donate-form-panel">
-                <h3>Submit a Donation Request</h3>
-                <p className="muted">
-                  Let us know what mobility aid or equipment you would like to give away.
-                </p>
-                <form className="form-grid" onSubmit={donateItem}>
-                  <label>
-                    Item to Donate
-                    <select
-                      value={donateForm.item}
-                      onChange={(e) => setDonateForm({ ...donateForm, item: e.target.value })}
-                    >
-                      <option>Wheelchair (Manual)</option>
-                      <option>Wheelchair (Electric / Motorized)</option>
-                      <option>Pair of Crutches (Underarm / Forearm)</option>
-                      <option>4-Wheel Rollator Walker</option>
-                      <option>Standard Folding Walker Frame</option>
-                      <option>Adjustable Walking Stick / Cane</option>
-                      <option>Other Assistive Device</option>
-                    </select>
-                  </label>
-                  <label>
-                    Item Condition
-                    <select
-                      value={donateForm.condition}
-                      onChange={(e) => setDonateForm({ ...donateForm, condition: e.target.value })}
-                    >
-                      <option>Like new (Ready for use)</option>
-                      <option>Good (Minor cosmetic wear)</option>
-                      <option>Fair (Functional, needs cleaning)</option>
-                      <option>Needs minor repair (Brakes, tips or cushion)</option>
-                    </select>
-                  </label>
-                  <label className="span-two">
-                    Special Notes or Story
-                    <textarea
-                      value={donateForm.note}
-                      onChange={(e) => setDonateForm({ ...donateForm, note: e.target.value })}
-                      placeholder="e.g. Bought for grandmother during recovery; now unused. Sanitized and in working order..."
-                      rows="3"
-                    />
-                  </label>
-                  <div className="span-two">
-                    <button className="btn primary" type="submit">
-                      Submit Donation Request →
-                    </button>
+                <div className="donate-form-layout">
+                  <div className="donate-form-fields">
+                    <h3>Submit a Donation Request</h3>
+                    <p className="muted">
+                      Let us know what mobility aid or equipment you would like to give away.
+                    </p>
+                    <form className="form-grid" onSubmit={donateItem}>
+                      <label>
+                        Equipment to Donate
+                        <select
+                          value={donateForm.item}
+                          onChange={(e) => setDonateForm({ ...donateForm, item: e.target.value })}
+                        >
+                          <option>Wheelchair (Manual)</option>
+                          <option>Wheelchair (Electric / Motorized)</option>
+                          <option>Pair of Crutches (Underarm / Forearm)</option>
+                          <option>4-Wheel Rollator Walker</option>
+                          <option>Standard Folding Walker Frame</option>
+                          <option>Adjustable Walking Stick / Cane</option>
+                          <option>Other Assistive Device</option>
+                        </select>
+                      </label>
+                      <label>
+                        Item Condition
+                        <select
+                          value={donateForm.condition}
+                          onChange={(e) => setDonateForm({ ...donateForm, condition: e.target.value })}
+                        >
+                          <option>Like new (Ready for immediate use)</option>
+                          <option>Good (Minor cosmetic wear)</option>
+                          <option>Fair (Functional, needs cleaning)</option>
+                          <option>Needs minor repair (Brakes, tips or cushion)</option>
+                        </select>
+                      </label>
+                      <label className="span-two">
+                        Special Notes or Story
+                        <textarea
+                          value={donateForm.note}
+                          onChange={(e) => setDonateForm({ ...donateForm, note: e.target.value })}
+                          placeholder="e.g. Bought for family member during recovery; now unused. Sanitized and in working order..."
+                          rows="3"
+                        />
+                      </label>
+                      <div className="span-two">
+                        <button className="btn primary" type="submit">
+                          Submit Donation Request →
+                        </button>
+                      </div>
+                    </form>
                   </div>
-                </form>
+
+                  <div className="donate-preview-box">
+                    <span className="preview-label">Selected Equipment Preview</span>
+                    <div className="donate-preview-img-wrap">
+                      <img
+                        src={donationImageMap[donateForm.item] || "https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=700&q=80"}
+                        alt={donateForm.item}
+                        className="donate-preview-img"
+                      />
+                      <span className="donate-preview-icon">{getEquipmentIcon(donateForm.item)}</span>
+                    </div>
+                    <strong>{donateForm.item}</strong>
+                    <small>100% Free collection and delivery to verified recipients</small>
+                  </div>
+                </div>
               </div>
 
-              {/* DONATION HISTORY LIST */}
+              {/* DONATION IMPACT LIST with Equipment Images & Icon Badges */}
               {donations.length > 0 && (
                 <div className="panel">
                   <div className="panel-head">
                     <div>
                       <h3>Community Donation Impact Records</h3>
-                      <p className="muted">Restored items delivered to underprivileged beneficiaries and shelters.</p>
+                      <p className="muted">Restored equipment delivered to underprivileged beneficiaries, clinics, and elder shelters.</p>
                     </div>
                     <span className="counter-pill">{donations.length} Handoffs</span>
                   </div>
@@ -1270,7 +1453,10 @@ function App() {
                   <div className="donations-grid">
                     {donations.map((d) => (
                       <div className="donation-card" key={d.id}>
-                        <img src={d.image} alt={d.item} className="donation-thumb" />
+                        <div className="donation-thumb-wrap">
+                          <img src={d.image} alt={d.item} className="donation-thumb" />
+                          <span className="donation-type-badge">{getEquipmentIcon(d.item || d.category)}</span>
+                        </div>
                         <div className="donation-details">
                           <div className="donation-top-line">
                             <strong>{d.item}</strong>
@@ -1298,7 +1484,7 @@ function App() {
             <>
               <PageTitle
                 title="Notifications"
-                subtitle="Stay updated on item inspections, collector arrivals, and payment disbursements."
+                subtitle="Stay updated on equipment inspections, collector arrivals, and payment disbursements."
                 action={
                   <button
                     className="btn outline"
@@ -1327,7 +1513,7 @@ function App() {
                         ) : n.title.toLowerCase().includes("donation") ? (
                           <IconDonate />
                         ) : (
-                          <IconVerification />
+                          <IconWheelchair />
                         )}
                       </span>
                       <span className="notification-copy">
@@ -1356,9 +1542,9 @@ function App() {
               <div className="verification-intro">
                 <div className="verify-icon"><IconVerification /></div>
                 <div>
-                  <h3>Item Verification & Safety Inspection</h3>
+                  <h3>Mobility Equipment Safety Inspection</h3>
                   <p className="muted">
-                    Every listed mobility aid is audited for structural safety, braking response, and hygiene standards before being routed for resale or donation.
+                    Every listed wheelchair, walker, and crutch is audited for structural safety, braking response, tire tread, and hygiene standards before being routed for resale or donation.
                   </p>
                 </div>
               </div>
@@ -1366,10 +1552,13 @@ function App() {
               <Workflow />
 
               <div className="panel">
-                <h3>Item Verification Checklist</h3>
+                <h3>Equipment Verification Checklist</h3>
                 {items.map((item) => (
                   <div className="verify-item-row" key={item.id}>
-                    <img src={item.image} alt={item.name} className="verify-item-img" />
+                    <div className="verify-thumb-wrap">
+                      <img src={item.image} alt={item.name} className="verify-item-img" />
+                      <span className="verify-type-badge">{getEquipmentIcon(item.name || item.category)}</span>
+                    </div>
                     <div className="schedule-info">
                       <strong>{item.name}</strong>
                       <small>
@@ -1422,12 +1611,12 @@ function App() {
                   <h3>{user.name || "Kushal"}</h3>
                   <p className="muted">{user.email || "kushal@example.com"}</p>
                   <p className="phone-line">{user.phone || "+91 98765 43210"}</p>
-                  <span className="status-badge status-verified">● Active ScrapCycle Member</span>
+                  <span className="status-badge status-verified">● Active Mobility Contributor</span>
 
                   <div className="profile-stats">
                     <div>
                       <strong>{items.length}</strong>
-                      <small>Listed Items</small>
+                      <small>Listed Aids</small>
                     </div>
                     <div>
                       <strong>{donations.length}</strong>
@@ -1443,7 +1632,7 @@ function App() {
                 <div className="panel profile-edit">
                   <h3>Edit Contact Information</h3>
                   <p className="muted">
-                    Keep your phone number and address accurate so local scrap vendors can easily coordinate pickups.
+                    Keep your phone number and address accurate so local mobility collectors can easily coordinate pickups.
                   </p>
                   <form
                     onSubmit={(e) => {
@@ -1485,8 +1674,8 @@ function App() {
             <span>© 2026 ScrapCycle • Reuse. Resell. Repeat.</span>
           </div>
           <div className="footer-links">
-            <span>♻ Responsible Scrap Recovery</span>
             <span>♿ Assistive Aid Mobility Mission</span>
+            <span>♻ Responsible Equipment Refurbishing</span>
           </div>
         </footer>
       </main>
@@ -1494,17 +1683,17 @@ function App() {
       {/* UPLOAD ITEM MODAL */}
       {showUpload && (
         <Modal
-          title="List a Scrap or Mobility Item"
-          subtitle="Submit photos and condition details to get a fair resale or scrap price audit."
+          title="List Mobility Aid Equipment"
+          subtitle="Submit photos and condition details for a fair resale valuation audit."
           onClose={() => setShowUpload(false)}
         >
           <form className="modal-form" onSubmit={addItem}>
             <label>
-              Item Name
+              Equipment Name
               <input
                 value={form.name}
                 onChange={(e) => setForm({ ...form, name: e.target.value })}
-                placeholder="e.g. Standard Folding Wheelchair or Copper Pipe Scrap"
+                placeholder="e.g. Standard Folding Wheelchair or 4-Wheel Rollator Walker"
                 required
               />
             </label>
@@ -1516,12 +1705,10 @@ function App() {
                   value={form.category}
                   onChange={(e) => setForm({ ...form, category: e.target.value })}
                 >
-                  <option>Mobility aid</option>
-                  <option>Metal</option>
-                  <option>Electronics</option>
-                  <option>Plastic</option>
-                  <option>Paper</option>
-                  <option>Other</option>
+                  <option>Wheelchairs</option>
+                  <option>Walkers</option>
+                  <option>Crutches</option>
+                  <option>Canes & Sticks</option>
                 </select>
               </label>
 
@@ -1531,11 +1718,10 @@ function App() {
                   value={form.condition}
                   onChange={(e) => setForm({ ...form, condition: e.target.value })}
                 >
-                  <option>Like new (Zero damage)</option>
+                  <option>Like new (Zero damage, clinic ready)</option>
                   <option>Good (Minor cosmetic wear)</option>
                   <option>Used (Functional, needs light tune-up)</option>
-                  <option>Needs repair (Brakes, tips or wheel alignment)</option>
-                  <option>Scrap grade (Metal/component value only)</option>
+                  <option>Needs minor repair (Brakes, tips or cushions)</option>
                 </select>
               </label>
             </div>
@@ -1548,11 +1734,11 @@ function App() {
                   min="0"
                   value={form.originalPrice}
                   onChange={(e) => setForm({ ...form, originalPrice: e.target.value })}
-                  placeholder="e.g. 7500"
+                  placeholder="e.g. 7800"
                 />
               </label>
               <label>
-                Expected Resale / Scrap Payout (₹)
+                Expected Resale Payout (₹)
                 <input
                   type="number"
                   min="0"
@@ -1574,12 +1760,12 @@ function App() {
             </label>
 
             <label>
-              Description & Damage Details
+              Condition Notes & Wear Details
               <textarea
                 rows="3"
                 value={form.description}
                 onChange={(e) => setForm({ ...form, description: e.target.value })}
-                placeholder="Describe condition, any parts needing repair, or weight in kg..."
+                placeholder="Describe condition, brake status, tire tread, or parts needing repair..."
               />
             </label>
 
@@ -1598,7 +1784,7 @@ function App() {
       {/* SCHEDULE MODAL */}
       {showSchedule && (
         <Modal
-          title="Schedule Doorstep Collector"
+          title="Schedule Doorstep Mobility Collector"
           subtitle={`Arrange pickup for ${items.find((i) => i.id === showSchedule)?.name || "your item"}.`}
           onClose={() => setShowSchedule(null)}
         >
@@ -1639,7 +1825,7 @@ function App() {
             </label>
 
             <div className="notice">
-              📍 Our verified scrap vendor partner will contact you prior to arrival with digital scales and packing supplies.
+              📍 Our verified mobility collector arrives with protective blankets and transport straps. Payout is settled immediately upon handover.
             </div>
 
             <div className="modal-actions">
@@ -1658,7 +1844,7 @@ function App() {
       {showFeedback && (
         <Modal
           title="Rate Your Experience"
-          subtitle="Help us improve our scrap recycling and mobility aid distribution."
+          subtitle="Help us improve our mobility aid recycling and distribution service."
           onClose={() => setShowFeedback(false)}
         >
           <form
@@ -1769,7 +1955,7 @@ function Workflow({ compact = false }) {
             <small>
               {[
                 "Add photos and condition details",
-                "Fair market & scrap valuation",
+                "Fair market resale valuation",
                 "Choose convenient collector slot",
                 "Instant digital payout",
                 "Review impact on community"
@@ -1786,7 +1972,7 @@ function Empty({ title, text }) {
   return (
     <div className="empty-state">
       <div className="empty-icon-wrap">
-        <img src="/scrapcycle-logo.png" alt="ScrapCycle" className="empty-logo" />
+        <IconWheelchair />
       </div>
       <h3>{title}</h3>
       <p>{text}</p>
@@ -2023,7 +2209,7 @@ h3 { font-size: 16px; letter-spacing: -0.2px; margin-bottom: 6px; }
 .welcome-actions { display: flex; gap: 10px; }
 .wave { font-size: 18px; color: #d69838; }
 
-/* Hero Banner with Realistic Pickup Image */
+/* Hero Banner with Clean Sticker Badge (Logo image removed) */
 .hero-banner {
   min-height: 270px; border-radius: 16px; overflow: hidden; position: relative;
   background: linear-gradient(115deg, #13422d, #1f7a4d); display: flex; align-items: stretch;
@@ -2043,7 +2229,10 @@ h3 { font-size: 16px; letter-spacing: -0.2px; margin-bottom: 6px; }
   background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(8px); color: var(--green-dark);
   padding: 10px 14px; box-shadow: 0 8px 20px rgba(0,0,0,0.2); display: flex; align-items: center; gap: 10px;
 }
-.sticker-logo { width: 32px; height: 32px; object-fit: contain; }
+.art-sticker-icon {
+  width: 28px; height: 28px; border-radius: 50%; background: #d7eedb; color: var(--green-dark);
+  display: grid; place-items: center; font-weight: 900; font-size: 14px;
+}
 .art-sticker strong { display: block; font-size: 11px; }
 .art-sticker small { display: block; font-size: 10px; color: var(--muted); }
 
@@ -2059,14 +2248,21 @@ h3 { font-size: 16px; letter-spacing: -0.2px; margin-bottom: 6px; }
 .stat-value { font-family: 'Manrope'; font-size: 26px; font-weight: 800; letter-spacing: -0.8px; margin: 4px 0 2px; }
 .stat-note { font-size: 11px; color: #9aa8a0; }
 
-/* Table View */
+/* Table View with Equipment Thumbnails & Badges */
 .section-heading, .panel-head { display: flex; align-items: center; justify-content: space-between; gap: 15px; margin-bottom: 14px; }
 .items-table-wrap { background: white; border: 1px solid var(--line); border-radius: 12px; overflow-x: auto; margin-bottom: 24px; }
 .items-table { width: 100%; border-collapse: collapse; text-align: left; }
 .items-table th { background: #fafcfa; color: #8e9c93; font-size: 10px; letter-spacing: 0.8px; padding: 13px 18px; font-weight: 800; text-transform: uppercase; }
 .items-table td { padding: 14px 18px; border-top: 1px solid #eef2ef; font-size: 12px; color: #4e6054; }
-.item-cell { display: flex; align-items: center; gap: 12px; min-width: 220px; }
-.item-thumb { width: 44px; height: 44px; object-fit: cover; border-radius: 8px; background: #eef3ef; flex-shrink: 0; }
+.item-cell { display: flex; align-items: center; gap: 12px; min-width: 250px; }
+.item-thumb-wrap { position: relative; width: 48px; height: 48px; flex-shrink: 0; }
+.item-thumb { width: 48px; height: 48px; object-fit: cover; border-radius: 8px; background: #eef3ef; border: 1px solid #e0ebe2; }
+.item-type-icon {
+  position: absolute; right: -4px; bottom: -4px; background: #1f7a4d; color: white;
+  border-radius: 50%; width: 20px; height: 20px; display: grid; place-items: center;
+  border: 1.5px solid white; box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+}
+.item-type-icon svg { width: 11px; height: 11px; }
 .item-cell strong { display: block; color: var(--ink); font-size: 12px; line-height: 1.3; }
 .item-cell small { display: block; color: #8e9c93; font-size: 11px; margin-top: 3px; }
 .condition-pill { background: #f1f6f2; border: 1px solid #e0ebe2; color: #3b5042; padding: 4px 8px; border-radius: 6px; font-size: 11px; font-weight: 600; white-space: nowrap; }
@@ -2094,28 +2290,40 @@ h3 { font-size: 16px; letter-spacing: -0.2px; margin-bottom: 6px; }
   border-radius: 12px; padding: 24px; display: flex; flex-direction: column; justify-content: space-between;
 }
 .donate-card-badge { display: flex; align-items: center; gap: 8px; font-size: 11px; font-weight: 800; color: var(--green); margin-bottom: 8px; }
-.small-badge-logo { width: 22px; height: 22px; object-fit: contain; }
+.mission-heart-icon {
+  width: 24px; height: 24px; border-radius: 50%; background: #d7eedb; color: var(--green-dark);
+  display: grid; place-items: center; font-size: 12px;
+}
 .donate-card h3 { font-size: 18px; margin-bottom: 8px; color: var(--green-dark); }
 .donate-card p { font-size: 12px; line-height: 1.6; color: #52675a; margin-bottom: 16px; }
 .donate-card-impact { display: flex; gap: 20px; margin-bottom: 18px; padding: 12px 0; border-top: 1px solid #d5ebd9; border-bottom: 1px solid #d5ebd9; }
 .donate-card-impact strong { font-size: 20px; color: var(--green-dark); display: block; }
 .donate-card-impact small { font-size: 10px; color: var(--muted); }
 
-/* Filter Pills */
+/* Filter Pills with Equipment Icons */
 .filter-row { display: flex; gap: 8px; margin-bottom: 20px; flex-wrap: wrap; }
 .filter-pill {
   border: 1px solid var(--line); background: white; color: #6f7f75; border-radius: 8px;
   padding: 8px 14px; font-size: 12px; font-weight: 600; transition: 0.2s ease;
+  display: inline-flex; align-items: center; gap: 6px;
 }
-.filter-pill b { margin-left: 6px; background: #eef3ef; border-radius: 4px; padding: 2px 6px; font-size: 10px; }
+.filter-pill-icon { display: flex; align-items: center; color: inherit; }
+.filter-pill-icon svg { width: 14px; height: 14px; }
+.filter-pill b { margin-left: 4px; background: #eef3ef; border-radius: 4px; padding: 2px 6px; font-size: 10px; }
 .filter-pill.active { border-color: var(--green); color: var(--green); background: var(--green-soft); }
 
 /* Item Cards Grid */
 .item-cards { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; margin-bottom: 22px; }
 .listing-card { background: white; border: 1px solid var(--line); border-radius: 12px; overflow: hidden; display: flex; flex-direction: column; }
-.card-media { position: relative; height: 170px; background: #eef3ef; overflow: hidden; }
+.card-media { position: relative; height: 175px; background: #eef3ef; overflow: hidden; }
 .card-media img { width: 100%; height: 100%; object-fit: cover; }
 .card-floating-badge { position: absolute; left: 12px; top: 12px; }
+.card-type-chip {
+  position: absolute; left: 12px; bottom: 12px; background: rgba(18, 45, 30, 0.85); backdrop-filter: blur(4px);
+  color: white; padding: 4px 8px; border-radius: 6px; font-size: 10px; font-weight: 700;
+  display: flex; align-items: center; gap: 6px;
+}
+.card-type-chip svg { width: 13px; height: 13px; }
 .card-savings-flag { position: absolute; right: 12px; top: 12px; background: #1f7a4d; color: white; padding: 4px 8px; border-radius: 6px; font-size: 9px; font-weight: 800; letter-spacing: 0.5px; }
 .listing-body { padding: 18px; display: flex; flex-direction: column; flex: 1; }
 .card-category-row { display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; }
@@ -2138,10 +2346,17 @@ h3 { font-size: 16px; letter-spacing: -0.2px; margin-bottom: 6px; }
 /* Notice */
 .notice { background: #fff9ed; border: 1px solid #f3e5c4; color: #8d6f35; padding: 12px 16px; border-radius: 8px; font-size: 11px; line-height: 1.6; margin-top: 18px; }
 
-/* Schedule Tab Styles */
+/* Schedule Tab Styles with Dedicated Equipment Images & Badges */
 .schedule-row, .verify-item-row { display: flex; align-items: center; gap: 16px; padding: 16px 0; border-bottom: 1px solid #edf1ed; }
 .schedule-row:last-child, .verify-item-row:last-child { border-bottom: 0; }
-.schedule-thumb, .verify-item-img { width: 54px; height: 54px; object-fit: cover; border-radius: 8px; background: #edf2ee; flex-shrink: 0; }
+.schedule-thumb-wrap, .verify-thumb-wrap { position: relative; width: 56px; height: 56px; flex-shrink: 0; }
+.schedule-thumb, .verify-item-img { width: 56px; height: 56px; object-fit: cover; border-radius: 8px; background: #edf2ee; border: 1px solid #dce8df; }
+.schedule-type-badge, .verify-type-badge {
+  position: absolute; right: -4px; bottom: -4px; background: #1f7a4d; color: white;
+  border-radius: 50%; width: 22px; height: 22px; display: grid; place-items: center;
+  border: 1.5px solid white; box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+}
+.schedule-type-badge svg, .verify-type-badge svg { width: 12px; height: 12px; }
 .schedule-info { flex: 1; min-width: 0; }
 .schedule-title-row { display: flex; align-items: baseline; gap: 10px; margin-bottom: 3px; }
 .schedule-price { color: var(--green-dark); font-weight: 800; font-size: 13px; }
@@ -2168,14 +2383,40 @@ h3 { font-size: 16px; letter-spacing: -0.2px; margin-bottom: 6px; }
 .donate-chips { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 18px; }
 .donate-chips span { font-size: 11px; font-weight: 700; color: var(--green-dark); background: white; border: 1px solid #d4ebd8; border-radius: 20px; padding: 6px 12px; display: inline-flex; align-items: center; gap: 6px; }
 .donate-chips svg { color: var(--green); }
+
+/* Donation Form Layout with Live Preview */
 .donate-form-panel { padding: 24px; }
+.donate-form-layout { display: grid; grid-template-columns: 1.35fr 0.65fr; gap: 24px; align-items: start; }
+.donate-form-fields h3 { margin-bottom: 4px; }
 .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0 16px; margin-top: 18px; }
 .span-two { grid-column: span 2; }
 
-/* Donation History Cards */
+.donate-preview-box {
+  background: #f8faf8; border: 1px solid #e1ebe3; border-radius: 12px; padding: 18px; text-align: center;
+}
+.preview-label { display: block; font-size: 10px; font-weight: 800; color: var(--green); letter-spacing: 0.8px; text-transform: uppercase; margin-bottom: 12px; }
+.donate-preview-img-wrap { position: relative; width: 100%; height: 140px; border-radius: 10px; overflow: hidden; margin-bottom: 12px; background: #eaf1ec; }
+.donate-preview-img { width: 100%; height: 100%; object-fit: cover; }
+.donate-preview-icon {
+  position: absolute; right: 10px; bottom: 10px; background: #1f7a4d; color: white;
+  border-radius: 50%; width: 26px; height: 26px; display: grid; place-items: center;
+  border: 2px solid white; box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
+.donate-preview-icon svg { width: 14px; height: 14px; }
+.donate-preview-box strong { display: block; font-size: 13px; margin-bottom: 4px; }
+.donate-preview-box small { font-size: 10px; color: var(--muted); line-height: 1.4; display: block; }
+
+/* Donation History Cards with Equipment Thumbnails */
 .donations-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 12px; }
 .donation-card { display: flex; gap: 14px; background: #fbfdfb; border: 1px solid #e7efe9; border-radius: 10px; padding: 14px; }
-.donation-thumb { width: 68px; height: 68px; object-fit: cover; border-radius: 8px; flex-shrink: 0; background: #edf3ef; }
+.donation-thumb-wrap { position: relative; width: 72px; height: 72px; flex-shrink: 0; }
+.donation-thumb { width: 72px; height: 72px; object-fit: cover; border-radius: 8px; background: #edf3ef; border: 1px solid #dce8df; }
+.donation-type-badge {
+  position: absolute; right: -4px; bottom: -4px; background: #1f7a4d; color: white;
+  border-radius: 50%; width: 22px; height: 22px; display: grid; place-items: center;
+  border: 1.5px solid white; box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+}
+.donation-type-badge svg { width: 12px; height: 12px; }
 .donation-details { flex: 1; min-width: 0; }
 .donation-top-line { display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px; }
 .donation-condition { font-size: 11px; color: #76867d; margin-bottom: 8px; }
@@ -2264,7 +2505,11 @@ h3 { font-size: 16px; letter-spacing: -0.2px; margin-bottom: 6px; }
 
 /* Empty State */
 .empty-state { text-align: center; padding: 40px 14px; }
-.empty-logo { width: 44px; height: 44px; object-fit: contain; opacity: 0.6; margin-bottom: 12px; }
+.empty-icon-wrap {
+  width: 48px; height: 48px; border-radius: 50%; background: #eaf5ee; color: var(--green);
+  display: grid; place-items: center; margin: 0 auto 12px;
+}
+.empty-icon-wrap svg { width: 24px; height: 24px; }
 .empty-state h3 { margin: 8px 0 4px; }
 .empty-state p { font-size: 12px; color: var(--muted); }
 
@@ -2289,6 +2534,7 @@ h3 { font-size: 16px; letter-spacing: -0.2px; margin-bottom: 6px; }
   .bottom-grid { grid-template-columns: 1fr; }
   .hero-art { width: 35%; }
   .donations-grid { grid-template-columns: 1fr; }
+  .donate-form-layout { grid-template-columns: 1fr; }
 }
 
 @media (max-width: 780px) {
